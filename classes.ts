@@ -13,12 +13,14 @@ class Modelo {
     foto_base64: string;
     status: statusModelo;
     ofertas: any[];
-    constructor(nome: string, foto: string){
+    localizacao: [number, number];
+    constructor(nome: string, foto: string, grausNorte:number, grausLeste: number){
         this.nome = nome
         this.foto_base64 = foto
         this.status = statusModelo.Candidato
         this.ofertas = []
         this.#chave_login = gerar_senha()
+        this.localizacao = [grausNorte, grausLeste]
     }
 }
 class Oferta {
