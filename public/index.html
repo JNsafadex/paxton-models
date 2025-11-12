@@ -4,68 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paxton</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #ff9900;
-      font-family: 'Arial Black', Gadget, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      font-size: 175px;
-      margin-top: 150px;
-      letter-spacing: 3px;
-      color: #ff9900;
-    }
-
-    h2 {
-      font-size: 28px;
-      margin-top: -125px;
-      color: #ffa733;
-    }
-
-    .botoes {
-      margin-top: 60px;
-    }
-
-    button {
-      background-color: transparent;
-      border: 4px solid #ff9900;
-      color: #ff9900;
-      padding: 40px 60px;
-      font-size: 26px;
-      border-radius: 20px;
-      margin: 15px;
-      cursor: pointer;
-      transition: 0.2s;
-      font-weight: bold;
-      box-shadow: 0px 0px 20px rgba(255, 153, 0, 0.3);
-    }
-
-    button:hover {
-      background-color: #ff9900;
-      color: #000;
-      transform: scale(1.08);
-      box-shadow: 0px 0px 25px rgba(255, 153, 0, 0.5);
-    }
-
-    footer {
-      color: #ff9900;
-      font-size: 14px;
-      margin-top: 120px;
-      opacity: 0.6;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <h1>Paxton</h1>
-  <h2>Bem vindo a Paxton models</h2>
+  <h1 class="titulo-paxton">Paxton</h1>
+  <h2 class="subtitulo-paxton">Bem vindo a Paxton models</h2>
 
   <div class="botoes">
-    <button id="modelo">Sou modelo</button>
+    <button href="modelo.html" id="modelo">Sou modelo</button>
     <button id="adm">Sou adm</button>
     <button id="empresa">Sou empresa</button>
   </div>
@@ -75,15 +21,15 @@
   <script>
 
     document.getElementById('modelo').onclick = function() {
-      alert('Área de modelos em construção...');
+     window.location.href = "modelo.html";
     }
 
     document.getElementById('adm').onclick = function() {
-      alert('Área administrativa em construção...');
+     window.location.href = "adm";
     }
 
     document.getElementById('empresa').onclick = function() {
-      alert('Área para empresas em construção...');
+     window.location.href = "empresa";
     }
   </script>
 </body>
