@@ -9,7 +9,7 @@ enum tiposOferta{
 }
 class Modelo {
     nome: string;
-    #chave_login: string;
+    chave_login: string;
     foto_base64: string;
     status: statusModelo;
     ofertas: any[];
@@ -19,7 +19,7 @@ class Modelo {
         this.foto_base64 = foto
         this.status = statusModelo.Candidato
         this.ofertas = []
-        this.#chave_login = gerar_senha()
+        this.chave_login = gerar_senha()
         this.localizacao = [grausNorte, grausLeste]
     }
 }
