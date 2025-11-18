@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Modelo - Paxton</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    
+  <button id="voltar" class="voltar">Voltar</button>
+  <h1 class="titulo-paxton">Paxton</h1>
+  <h2 class="subtitulo-paxton">Cadastro de Modelo</h2>
+
+  <div>
+    <p>Nome:</p>
+    <input id="nome" type="text">
+
+    <p>Foto:</p>
+    <input id="foto" type="file" accept="image/*">
+
+    <br><br><br>
+    <button id="enviar">Cadastrar</button>
+  </div>
+
+  <footer>Seu futuro conosco • versão 1.0</footer>
+
+  <script>
+    document.getElementById('enviar').onclick = function () {
+      const nome = document.getElementById('nome').value;
+      const foto = document.getElementById('foto').files[0];
+
+      if (!nome || !foto) {
+        alert('Por favor, preencha tudo antes de enviar.');
+        return;
+      }
+      localStorage.setItem('nomeModelo', nome);
+      
+      const leitor = new FileReader();
+      leitor.onload = function(e) {
+        localStorage.setItem('fotoModelo', e.target.result);
+
+        window.location.href = "PerfilModelo.html";
+      };
+
+      leitor.readAsDataURL(foto);
+    };
+
+    document.getElementById('voltar').onclick = function(){
+      window.location.href = 'index.html';
+    }
+  </script>
 </body>
 </html>

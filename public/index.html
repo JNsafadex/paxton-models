@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+ <button id="sobre" class="sobre">Sobre nós</button>
+
   <h1 class="titulo-paxton">Paxton</h1>
   <h2 class="subtitulo-paxton">Bem vindo a Paxton models</h2>
 
-  <div class="botoes">
+  <div class="botoes-menu">
     <button href="modelo.html" id="modelo">Sou modelo</button>
     <button id="adm">Sou adm</button>
     <button id="empresa">Sou empresa</button>
@@ -30,6 +32,10 @@
 
     document.getElementById('empresa').onclick = function() {
      window.location.href = "empresa";
+    }
+
+    document.getElementById('sobre').onclick = function() {
+     window.location.href = "sobre.html";
     }
   </script>
 </body>
