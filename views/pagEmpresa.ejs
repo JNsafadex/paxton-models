@@ -1,0 +1,5 @@
+<% models.forEach(function(model) { 
+    if(model.status == 1) { %>
+        <%= model.nome %> <img src="<%= model.foto_base64 %>" alt="" srcset="">
+        <button>fazer oferta</button>
+    <%}})%>

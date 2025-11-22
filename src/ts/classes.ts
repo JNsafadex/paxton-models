@@ -12,7 +12,7 @@ class Modelo {
     chave_login: string;
     foto_base64: string;
     status: statusModelo;
-    ofertas: any[];
+    ofertas: Oferta[];
     localizacao: [number, number];
     constructor(nome: string, foto: string, grausNorte:number, grausLeste: number){
         this.nome = nome

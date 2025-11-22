@@ -27,27 +27,36 @@
   <script>
     document.getElementById('enviar').onclick = function () {
       const nome = document.getElementById('nome').value;
-      const foto = document.getElementById('foto').files[0];
-
+      const foto_html = document.getElementById('foto').files[0];
+      const leitor = new FileReader
+      leitor.readAsDataURL(foto_html)
       if (!nome || !foto) {
         alert('Por favor, preencha tudo antes de enviar.');
         return;
       }
-      localStorage.setItem('nomeModelo', nome);
-      
-      const leitor = new FileReader();
-      leitor.onload = function(e) {
-        localStorage.setItem('fotoModelo', e.target.result);
-
-        window.location.href = "PerfilModelo.html";
-      };
-
-      leitor.readAsDataURL(foto);
-    };
-
+      navigator.geolocation.getCurrentPosition((position) => {do_fetch(position.coords.latitude, position.coords.longitude)}, 
+      (error)=> {do_fetch(32.6758,-117.1575)}, {timeout:1000});
+      function do_fetch(lat,long){
+        fetch("/criar_usuario", {
+          method: "POST",
+          body: JSON.stringify({
+            nome: nome,
+            foto: leitor.result,
+            lat: lat,
+            long: long
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+        .then((response) => response.json())
+        .then((json) => alert(`Chave de login: ${json.chave}`));
+      }
+    }
     document.getElementById('voltar').onclick = function(){
       window.location.href = 'index.html';
     }
+    
   </script>
 </body>
 </html>

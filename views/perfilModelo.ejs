@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Modelo - Paxton</title>
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body>
+  <button id="voltar" class="voltar">Voltar</button>
+  <h1 class="titulo-paxton-PerfilModelo">Paxton</h1>
+  <h2 class="subtitulo-paxton-PerfilModelo">Perfil do Modelo</h2>
+
+  <div>
+    <h3>Suas Informações</h3>
+
+    <p><strong>Nome:</strong></p>
+    <p id="nomeModelo"><%= nome %></p>
+
+    <p><strong>Foto:</strong></p>
+    <img id="fotoModelo" src="<%= foto_base64 %>" alt="Foto do modelo" class="foto">
+  </div>
+
+  <br>
+
+  <div>
+    <h3>Empresas interessadas</h3>
+    <ul id="listaEmpresas">
+        <% if(status == 0) {%>
+            <li>Nosso time ainda está analisando o seu perfil.</li>
+        <%} else if(status == 2) {%>
+            <li>Você não foi aceito. Idiota.</li>
+        <%} else if(ofertas.length == 0) {%>
+            <li>Nenhuma empresa demonstrou interesse ainda.</li>
+        <%} else ofertas.forEach(function(oferta) {%>
+            <li><%= oferta.tipo %> de <%= oferta.comprador %> | R$<%= oferta.valor %> | <%= oferta.tempo_meses %> meses</li>
+        <%})%>
+        </ul>
+  </div>
+
+  <script>
+    document.getElementById('voltar').onclick = function(){
+      window.location.href = '/index.html';
+    }
+  </script>
+
+  <footer>Seu futuro conosco • versão 1.0</footer>
+</body>
+</html>
