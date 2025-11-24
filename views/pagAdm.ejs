@@ -20,8 +20,8 @@
         <div class="modelo-box">
           <h3><%= model.nome %></h3>
           <img src="<%= model.foto_base64 %>" alt="Foto do modelo">
-          <button class="button_adm">aceitar</button>
-          <button class="button_adm">recusar</button>
+          <button id="aceitar" class="button_adm">aceitar</button>
+          <button id="recusar" class="button_adm">recusar</button>
         </div>
 
     <% } else if(model.status == 1) { %>
@@ -38,9 +38,17 @@
     document.getElementById('voltar').onclick = function(){
       window.location.href = '/index.html';
     }
+
+    document.getElementById('aceitar').onclick = function(){
+      window.location.href = '/aceitar/<%=model.chave_login%>';
+    }
+
+    document.getElementById('recusar').onclick = function(){
+      window.location.href = '/recusar/<%=model.chave_login%>';
+    }
   </script>
 
-  <footer>Seu futuro conosco • painel adm</footer>
+  <footer>Seu futuro conosco • versão 1.0</footer>
 
 </body>
 </html>
