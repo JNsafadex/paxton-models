@@ -33,13 +33,8 @@ function gerar_senha() {
     var result = '';
     var minAscii = 48;
     var maxAscii = 122;
-    var bosta = ["\\", "'", "/", "`", '"', "?"]
     for (var i = 0; i < 12; i++) {
         var randomAsciiCode = Math.floor(Math.random() * (maxAscii - minAscii + 1)) + minAscii;
-        if(randomAsciiCode in bosta){
-            i--
-            continue
-        }
         result += String.fromCharCode(randomAsciiCode);
     }
     return result;

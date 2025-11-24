@@ -29,7 +29,7 @@
         <div class="modelo-box">
           <h3><%= model.nome %></h3>
           <img src="<%= model.foto_base64 %>" alt="Foto do modelo">
-          <button class="button_adm">alterar preço</button>
+          <button class="button_adm" onclick="mudar_preco('<%=model.chave_login%>')">alterar preço</button>
         </div>
     <% }}); %>
   </div>

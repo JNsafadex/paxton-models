@@ -37,7 +37,7 @@ app.post("/rejeitar", (req, res) => {
   model.status = 2
   res.json({status:1})
 })
-app.post("/mudar_preço", (req, res) => {
+app.post("/mudar_preco", (req, res) => {
   let {senha, preco} = req.body
   let model = models.find((model) => model.chave_login == senha)
   model.preco = preco
@@ -46,8 +46,8 @@ app.post("/mudar_preço", (req, res) => {
 app.get("/pag_empresa", (_, res) => {
   res.render("pagEmpresa.ejs", {models})
 })
-app.get("/fazer_oferta/:senha/:tipo/:tempo/:comp/:preco", (req, res) => {
-  let {tipo, tempo, comp, preco, senha} = req.params
+app.post("/fazer_oferta", (req, res) => {
+  let {tipo, tempo, comp, preco, senha} = req.body
   let model = models.find((model) => model.chave_login == senha)
   model.ofertas.push(new Oferta(comp, tempo, preco, tipo))
   res.json({status:1})

@@ -19,7 +19,7 @@
             <div class="modelo-box-empresa">
                 <h3 class="h3_empresa"><%= model.nome %></h3>
                 <img src="<%= model.foto_base64 %>" alt="" srcset="">
-                <button class="button_empresa">fazer oferta</button>
+                <button class="button_empresa" onclick="fazer_oferta('<%= model.chave_login %>')">fazer oferta</button>
             </div>
     <% }}); %>
   </div>
@@ -27,6 +27,30 @@
   <script>
     document.getElementById('voltar').onclick = function(){
       window.location.href = '/index.html';
+    }
+    function fazer_oferta(chave_login){
+      let tipo = prompt("Aluguel ou Compra?")
+      let preco = prompt("Qual será o preço da oferta")
+      let tempo = prompt("Tempo(meses)")
+      let comp  = prompt("Quem é Você?")
+      fetch("/fazer_oferta", {
+          method: "POST",
+          body: JSON.stringify({
+            senha: chave_login,
+            preco: preco,
+            tipo: tipo,
+            comp :comp,
+            tempo: tempo
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+        .then((response) => response.json())
+        .then((json) => {
+          if(json.status == 1) alert("Sucesso!")
+          else alert("Erro!")
+      });
     }
   </script>
 
