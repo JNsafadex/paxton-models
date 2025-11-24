@@ -1,8 +1,46 @@
-<% models.forEach(function(model) { 
-    if(model.status == 0) { %>
-        <%= model.nome %> <img src="<%= model.foto_base64 %>" alt="" srcset="">
-        <button>aceitar</button> <button>recusar</button>
-    <%} else if(model.status == 1) { %>
-        <%= model.nome %> <img src="<%= model.foto_base64 %>" alt="" srcset="">
-        <button>alterar preço</button>
-    <%}})%>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paxton - Administração</title>
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body class="body_adm">
+
+  <button id="voltar" class="voltar">Voltar</button>
+
+  <h1 class="h1_adm">Paxton</h1>
+  <h2 class="h2_adm">Painel de Administração</h2>
+
+  <div class="container_adm">
+    <% models.forEach(function(model) { 
+      if(model.status == 0) { %>
+
+        <div class="modelo-box">
+          <h3><%= model.nome %></h3>
+          <img src="<%= model.foto_base64 %>" alt="Foto do modelo">
+          <button class="button_adm">aceitar</button>
+          <button class="button_adm">recusar</button>
+        </div>
+
+    <% } else if(model.status == 1) { %>
+
+        <div class="modelo-box">
+          <h3><%= model.nome %></h3>
+          <img src="<%= model.foto_base64 %>" alt="Foto do modelo">
+          <button class="button_adm">alterar preço</button>
+        </div>
+    <% }}); %>
+  </div>
+
+  <script>
+    document.getElementById('voltar').onclick = function(){
+      window.location.href = '/index.html';
+    }
+  </script>
+
+  <footer>Seu futuro conosco • painel adm</footer>
+
+</body>
+</html>

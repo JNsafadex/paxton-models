@@ -1,5 +1,36 @@
-<% models.forEach(function(model) { 
-    if(model.status == 1) { %>
-        <%= model.nome %> <img src="<%= model.foto_base64 %>" alt="" srcset="">
-        <button>fazer oferta</button>
-    <%}})%>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paxton - Área da Empresa</title>
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body class="body_empresa">
+
+  <button id="voltar" class="voltar">Voltar</button>
+
+  <h1 class="h1_empresa">Paxton</h1>
+  <h2 class="h2_empresa">Área da Empresa — Ofertar Modelos</h2>
+
+  <div class="container_empresa">
+    <% models.forEach(function(model) { 
+        if(model.status == 1) { %>
+            <div class="modelo-box-empresa">
+                <h3 class="h3_empresa"><%= model.nome %></h3>
+                <img src="<%= model.foto_base64 %>" alt="" srcset="">
+                <button class="button_empresa">fazer oferta</button>
+            </div>
+    <% }}); %>
+  </div>
+
+  <script>
+    document.getElementById('voltar').onclick = function(){
+      window.location.href = '/index.html';
+    }
+  </script>
+
+  <footer>Seu futuro conosco • área da empresa</footer>
+
+</body>
+</html>

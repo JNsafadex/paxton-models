@@ -13,7 +13,7 @@
   <h2 class="subtitulo-paxton">Bem vindo a Paxton models</h2>
 
   <div class="botoes-menu">
-    <button href="modelo.html" id="modelo">Sou modelo</button>
+    <button id="modelo">Sou modelo</button>
     <button id="adm">Sou adm</button>
     <button id="empresa">Sou empresa</button>
   </div>
@@ -27,11 +27,11 @@
     }
 
     document.getElementById('adm').onclick = function() {
-     window.location.href = "pag_adm";
+     window.location.href = "/views/pagAdm.ejs";
     }
 
     document.getElementById('empresa').onclick = function() {
-     window.location.href = "pag_empresa";
+     window.location.href = "/views/pagEmpresa.ejs";
     }
 
     document.getElementById('sobre').onclick = function() {
