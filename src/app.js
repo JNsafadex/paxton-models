@@ -24,20 +24,21 @@ app.get("/login/:senha", (req, res) => {
 app.get("/pag_adm", (_, res) => {
   res.render("pagAdm.ejs", {models})
 })
-app.get("/aceitar/:senha", (req, res) => {
-  let {senha} = req.params
+app.post("/aceitar", (req, res) => {
+  let {senha, preco} = req.body
   let model = models.find((model) => model.chave_login == senha)
   model.status = 1
+  model.preco = preco
   res.json({status:1})
 })
-app.get("/rejeitar/:senha", (req, res) => {
-  let {senha} = req.params
+app.post("/rejeitar", (req, res) => {
+  let {senha} = req.body
   let model = models.find((model) => model.chave_login == senha)
   model.status = 2
   res.json({status:1})
 })
-app.get("/mudar_preço/:senha/:preco", (req, res) => {
-  let {senha, preco} = req.params
+app.post("/mudar_preço", (req, res) => {
+  let {senha, preco} = req.body
   let model = models.find((model) => model.chave_login == senha)
   model.preco = preco
   res.json({status:1})
