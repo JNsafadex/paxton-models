@@ -11,24 +11,28 @@
 
   <div class="div_login">
     <h1 class="titulo-paxton">Paxton</h1>
-    <h2 class="subtitulo-paxton">Área de login</h2>
+    <h2 class="subtitulo-paxton">Login adm</h2>
 
-    <input id="senha" type="password" placeholder="Digite sua senha" class="input-senha">
+    <input id="senha" type="password" placeholder="Digite a senha" class="input-senha">
 
-    <button id="entrar">Entrar</button>
+    <button id="entrar" onclick="login_adm()">Entrar</button>
   </div>
 
   <footer>Seu futuro conosco • versão 1.0</footer>
 
   <script>
     document.getElementById('voltar').onclick = function() {
-      window.location.href = "modelo.html";
+      window.location.href = "index.html";
     }
 
-    document.getElementById('entrar').onclick = function() {
-      let senha = document.getElementById('senha').value;
-      window.location.href = `/login/${senha}`;
+    function login_adm(){
+        let senha = document.getElementById("senha").value
+        if (senha == 14042006) {
+           window.location.href = "/pag_adm";
+        } else {
+      alert("Senha invalida!")
     }
+}
   </script>
 
 </body>
