@@ -27,7 +27,7 @@
 
     document.getElementById('entrar').onclick = function() {
       let senha = document.getElementById('senha').value;
-      window.location.href = `/login/${senha}`;
+      window.location.href = `/login/${encodeURIComponent(senha)}`;
     }
   </script>
 

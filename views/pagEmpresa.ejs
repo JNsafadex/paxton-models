@@ -19,6 +19,7 @@
             <div class="modelo-box-empresa">
                 <h3 class="h3_empresa"><%= model.nome %></h3>
                 <img src="<%= model.foto_base64 %>" alt="" srcset="">
+                <p class="p_model">Preço sugerido: R$<%= model.preco%></p>
                 <button class="button_empresa" onclick="fazer_oferta('<%= model.chave_login %>')">fazer oferta</button>
             </div>
     <% }}); %>

@@ -28,6 +28,7 @@
 
         <div class="modelo-box">
           <h3><%= model.nome %></h3>
+          <p> R$<%= model.preco %></p>
           <img src="<%= model.foto_base64 %>" alt="Foto do modelo">
           <button class="button_adm" onclick="mudar_preco('<%=model.chave_login%>')">alterar preço</button>
         </div>
@@ -52,7 +53,10 @@
         })
         .then((response) => response.json())
         .then((json) => {
-          if(json.status == 1) alert("Sucesso!")
+          if(json.status == 1){
+            alert("Sucesso!")
+            window.location.reload();
+          }
           else alert("Erro!")
       });
     }
@@ -68,7 +72,10 @@
         })
         .then((response) => response.json())
         .then((json) => {
-          if(json.status == 1) alert("Sucesso!")
+          if(json.status == 1){
+            alert("Sucesso!")
+            window.location.reload();
+          }
           else alert("Erro!")
       });
     }
@@ -86,7 +93,10 @@
         })
         .then((response) => response.json())
         .then((json) => {
-          if(json.status == 1) alert("Sucesso!")
+          if(json.status == 1){
+            alert("Sucesso!")
+            window.location.reload();
+          }
           else alert("Erro!")
       });
     }
